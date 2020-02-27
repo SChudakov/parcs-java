@@ -1,6 +1,6 @@
 import parcs.*;
 
-public class MaximumCliqueFinder {
+public class MaximumCliqueFinder implements AM {
     public void run(AMInfo info) {
         Graph graph = (Graph) info.parent.readObject();
         int numberOfPoints = info.parent.readInt();

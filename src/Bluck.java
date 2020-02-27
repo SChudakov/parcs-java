@@ -25,6 +25,7 @@ public class Bluck {
             channel c = p.createChannel();
             p.execute("MaximumCliqueFinder");
             c.write(graph);
+            c.write(numberOfPoints);
             c.write(i);
             points.add(p);
             chans.add(c);
