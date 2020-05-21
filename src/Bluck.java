@@ -16,6 +16,8 @@ public class Bluck {
         Graph graph = loadGraph(curtask.findFile("input_mc"));
         AMInfo info = new AMInfo(curtask, null);
 
+        double start = System.currentTimeMillis();
+
         List<point> points = new ArrayList<>();
         List<channel> chans = new ArrayList<>();
         for (int i = 0; i < numberOfPoints; ++i) {
@@ -36,6 +38,9 @@ public class Bluck {
         for (channel c : chans) {
             maximumCliqueSize = Math.max(maximumCliqueSize, c.readInt());
         }
+
+        double end = System.currentTimeMillis();
+        System.out.println("Execution time in milliseconds: " + (end - start));
 
         System.out.println("Result: " + maximumCliqueSize);
         curtask.end();
