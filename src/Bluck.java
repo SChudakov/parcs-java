@@ -7,10 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bluck {
-    private static int numberOfPoints = 2;
-
     public static void main(String[] args) throws Exception {
-        assert numberOfPoints > 0;
         task curtask = new task();
         curtask.addJarFile("MC.jar");
         Graph graph = loadGraph(curtask.findFile("input_mc"));
@@ -20,14 +17,14 @@ public class Bluck {
 
         List<point> points = new ArrayList<>();
         List<channel> chans = new ArrayList<>();
-        for (int i = 0; i < numberOfPoints; ++i) {
+        for (int i = 0; i < graph.getNumOfVertices(); ++i) {
             System.out.println("craete point " + i);
 
             point p = info.createPoint();
             channel c = p.createChannel();
             p.execute("MaximumCliqueFinder");
             c.write(graph);
-            c.write(numberOfPoints);
+            c.write(graph.getNumOfVertices());
             c.write(i);
             points.add(p);
             chans.add(c);
